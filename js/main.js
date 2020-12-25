@@ -194,36 +194,22 @@ $(function () {
         }, 500);
     });
 
-    // Scroll to top   
-
-    let scrolled,
-        timer,
-        btn = document.getElementById('to-top');
-
-    function scrollToTop() {
-        if (scrolled > 0) {
-            window.scrollTo(0, scrolled);
-            scrolled = scrolled - 250;
-            timer = setTimeout(scrollToTop, 50);
-        }
-        else {
-            clearTimeout(timer);
-            window.scrollTo(0, 0);
-        }
-    }
-
+    // Scroll to top 
     $(window).on('scroll', function () {
-        scrolled = window.pageYOffset;
+        let scrolled = window.pageYOffset;
+        let btn = document.querySelector('#to-top'); 
         if (scrolled > 400) {
             btn.style.display = 'block';
         } else {
             btn.style.display = '';
-        }
+        }      
     });
-
-    $(btn).on('click', function () {
-        scrollToTop();
-    });
+    $('#to-top').on('click', function (event) {
+        event.preventDefault();
+        $('html, body').animate({
+            scrollTop: 20
+        }, 600);
+    }); 
 
     // Validate form and mask for phone number
 
