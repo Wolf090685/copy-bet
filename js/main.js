@@ -241,7 +241,7 @@ $(function () {
             },
             messages: {
                 username: {
-                    required: "Введите имя",
+                    required: "Введите ник",
                     minlength: jQuery.validator.format("Введите минимум {0} символа!")
                 },
                 phone: "Введите номер телефона",
